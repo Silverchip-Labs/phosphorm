@@ -1,0 +1,55 @@
+.error-boundary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: #222222;
+
+    .error-box {
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1, h2, p {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    .button {
+        margin-top: 20px;
+    }
+
+    &[data-theme='dark'] {
+        background-color: #181818;
+        color: white;
+    }
+}

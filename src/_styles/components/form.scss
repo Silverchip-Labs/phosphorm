@@ -1,0 +1,606 @@
+// row
+.form-row {
+    display: flex;
+    justify-content: space-between;
+
+    .form-field {
+        flex: 1;
+        margin: {
+            left: 10px;
+            right: 10px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// field
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+// label
+.form-label {
+    margin-bottom: 5px;
+}
+
+// asterisk
+.form-asterisk {
+    margin-left: 2.5px;
+}
+
+// error
+.form-error {
+    margin-top: 5px;
+    white-space: pre-line;
+}
+
+.form-generic-error {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: $border-radius;
+    font-size: 14px;
+    text-align: center;
+}
+
+// inputs, textarea and select
+.form-input, .form-select {
+    padding: 12px 15px;
+    font-size: 13px;
+    line-height: 24px;
+    border: 1px solid grey;
+    border-radius: $border-radius;
+    transition: border-color 0.2s ease-in-out;
+
+    &:disabled, &.disabled {
+        cursor: not-allowed;
+    }
+
+    // mini version
+    &.mini {
+        padding: {
+            top: 7px;
+            bottom: 7px;
+        }
+    }
+}
+
+// input and textarea
+.form-input {
+    outline: none;
+
+    &.text-area {
+        resize: none;
+    }
+}
+
+// select
+.form-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+
+    .arrow {
+        padding-top: 4px;
+        margin-left: 10px;
+        padding-left: 10px;
+        font-size: 22px;
+        border-left: 1px solid #ccc;
+    }
+
+    p {
+        flex: 1;
+    }
+
+    .remove {
+        margin-top: 2px;
+        background-color: transparent;
+        z-index: 2;
+
+        i {
+            font-size: 16px;
+        }
+    }
+
+    button {
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    // multi select
+    &.multi-select {
+        padding: 3px 15px 3px 5px;
+
+        .selected {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .placeholder {
+            padding: 10px;
+            padding-right: 0;
+        }
+
+        .option {
+            display: flex;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: $border-radius;
+
+            .remove {
+                margin-left: 5px;
+
+                i {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    // mini version
+    &.mini {
+        .arrow {
+            margin-left: 30px;
+        }
+    }
+}
+
+.form-select-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+@keyframes select-options-animation {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 1000px;
+    }
+  }
+
+// select options & search
+.form-select-options {
+    position: fixed;
+    width: 100%;
+    min-width: 400px;
+    top: 100%;
+    margin: 5px 0;
+    border: 1px solid grey;
+    border-radius: $border-radius;
+    z-index: 9999;
+    overflow: hidden;
+    animation-name: select-options-animation;
+    animation-duration: 0.7s;
+
+    .search {
+        padding: 15px;
+
+        input {
+            width: 100%;
+            padding: 5px 15px;
+        }
+    }
+
+    .options-list {
+        max-height: 170px;
+        overflow: auto;
+
+        p, button {
+            padding: 8px 15px;
+        }
+
+        button {
+            width: 100%;
+            text-align: left;
+            background-color: transparent;
+        }
+
+        .option {
+            font-size: 13px;
+            cursor: pointer;
+        }
+    }
+
+    // mini version
+    &.mini {
+        min-width: 200px;
+    }
+}
+
+// checkbox and radio buttons
+.form-checkbox, .form-radio {
+    input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 0;
+        opacity: 0;
+
+        &:focus-visible {
+            + .content {
+                outline: #025FCC auto 1px;
+                outline-offset: 1px;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+
+        .outer-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            border: 1px solid grey;
+        }
+
+        .inner-box {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        p {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+
+            p {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+// checkbox
+.form-checkbox {
+    .content {
+        .outer-box {
+            border-radius: $border-radius;
+        }
+
+        .inner-box {
+            font-size: 18px;
+        }
+    }
+}
+
+// radio buttons
+.form-radio-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-radio {
+    margin-right: 20px;
+    margin-bottom: 15px;
+
+    .content {
+        .outer-box {
+            border-radius: 50%;
+        }
+
+        .inner-box {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+        }
+    }
+}
+
+// datepicker
+.form-datepicker {
+    display: flex;
+    align-items: center;
+
+    .form-input {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+    .remove {
+        position: absolute;
+        right: 48px;
+        margin-top: 4px;
+        background-color: transparent;
+        outline: none;
+
+        i {
+            font-size: 16px;
+        }
+    }
+
+    .calendar {
+        position: absolute;
+        right: 15px;
+        margin-top: 2px;
+        padding: 5px 0 5px 10px;
+        background-color: transparent;
+        border-left: 1px solid #ccc;
+        outline: none;
+    }
+
+    &.disabled {
+        .calendar {
+            cursor: not-allowed;
+        }
+    }
+}
+
+// datepicker widget
+.react-datepicker__tab-loop {
+    position: static;
+}
+
+// Toggle select
+.checkbox {
+    float: left;
+    cursor: pointer;
+    width: 100%;
+
+    input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        margin: 0;
+        z-index: 1;
+        border: none;
+        padding: 0;
+        &:checked {
+            + label,
+            + input + label {
+                .inner {
+                    left: calc(100% - 18px);
+                }
+            }
+        }
+
+        &:focus-visible {
+            + label {
+                outline: #025FCC auto 1px;
+                outline-offset: 1px;
+            }
+        }
+    }
+    label {
+        float: left;
+        width: 100%;
+        font-size: 140%;
+    }
+
+    .outer {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 20px;
+        border-radius: 20px;
+        transition: background-color 0.2s;
+    }
+
+    .text {
+        width: 100%;
+        padding-left: 45px;
+        padding-right: 10px;
+        box-decoration-break: clone;
+        font-size: 16px;
+
+
+        &.black {
+            color: black;
+        }
+        &.white {
+            color: white;
+        }
+    }
+
+    .inner {
+        position: absolute;
+        left: 3px;
+        top: 2.25px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        transition: left 0.2s;
+    }
+
+
+    &.left {
+        .outer {
+            left: 0;
+            right: auto;
+        }
+    }
+    &.grey-out {
+        opacity: 0.3;
+    }
+
+    &.hide{
+        display:none;
+    }
+
+    &.small-text {
+        width: 45px;
+
+        label {
+            float: left;
+            width: 100%;
+        }
+        .text {
+            float: left;
+            width: 100%;
+            font-size: 12px;
+            line-height: 0.75;
+            margin-bottom: 5px;
+            padding: {
+                left: 0;
+                right: 0;
+            }
+        }
+        .outer {
+            float: left;
+            margin-left: 3px;
+            position: relative;
+            top: 0;
+            transform: none;
+        }
+    }
+    .field-validation-error {
+        border-top: 2px solid #9d9d9e;
+    }
+    &.with-subtext {
+        width: 50px;
+        padding-left: 10px;
+    }
+}
+
+
+.single-image-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.position-left {
+        align-items: flex-start;
+    }
+
+    &.position-right {
+        align-items: flex-end;
+    }
+
+    &.error {
+        .single-image-preview {
+            border: solid 1px var(--highlight-form-error);
+        }
+    }
+
+    input {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        display: none;
+    }
+
+    .single-image-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        align-items: center;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &:focus-within {
+            opacity: 1;
+
+            .single-image-preview {
+                outline: none;
+                box-shadow: 0 0 0 3px var(--focus-highlight);
+            }
+        }
+
+        .single-image-preview {
+            height: 75px;
+        }
+
+        .button {
+            margin-top: 0.5em;
+    
+            border: none;
+    
+            font-size: 0.8rem;
+    
+            height: 30px;
+            min-width: 95px;
+            width: fit-content;
+    
+            cursor: pointer;
+    
+            padding: 2px 10px;
+    
+            &:focus {
+                outline: none;
+                box-shadow: none;
+              }
+    
+              &:active {
+                outline: none;
+                box-shadow: none;
+              }
+    
+            i {
+                margin: 0 0 0 3px;
+            }
+        }
+    }
+
+    .button {
+        margin-top: 0.5em;
+
+        border: none;
+
+        font-size: 0.8rem;
+
+        height: 30px;
+        min-width: 95px;
+        width: fit-content;
+
+        cursor: pointer;
+
+        padding: 2px 10px;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-highlight);
+          }
+
+          &:active {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-highlight);
+          }
+
+        i {
+            margin: 0 0 0 3px;
+        }
+    }
+}

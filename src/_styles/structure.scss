@@ -1,0 +1,212 @@
+@mixin flex-calc($size) {
+    flex-basis: calc(100% / (12 / #{$size}));
+    flex-grow: 0;
+}
+
+@mixin width-calc($size) {
+    width: calc(100% / (12 / #{$size}));
+}
+
+// direction
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+// wrapping
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+// alignment
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+// flex sizing
+.flex {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.flex-full {
+    flex-basis: 100%;
+}
+
+.flex-1 {
+    @include flex-calc(1);
+}
+
+.flex-2 {
+    @include flex-calc(2);
+}
+
+.flex-3 {
+    @include flex-calc(3);
+}
+
+.flex-4 {
+    @include flex-calc(4);
+}
+
+.flex-5 {
+    @include flex-calc(5);
+}
+
+.flex-6 {
+    @include flex-calc(6);
+}
+
+.flex-7 {
+    @include flex-calc(7);
+}
+
+.flex-8 {
+    @include flex-calc(8);
+}
+
+.flex-9 {
+    @include flex-calc(9);
+}
+
+.flex-10 {
+    @include flex-calc(10);
+}
+
+.flex-11 {
+    @include flex-calc(11);
+}
+
+.flex-12 {
+    @include flex-calc(12);
+}
+
+// standard sizing
+.width-1 {
+    @include width-calc(1);
+}
+
+.width-2 {
+    @include width-calc(2);
+}
+
+.width-3 {
+    @include width-calc(3);
+}
+
+.width-4 {
+    @include width-calc(4);
+}
+
+.width-5 {
+    @include width-calc(5);
+}
+
+.width-6 {
+    @include width-calc(6);
+}
+
+.width-7 {
+    @include width-calc(7);
+}
+
+.width-8 {
+    @include width-calc(8);
+}
+
+.width-9 {
+    @include width-calc(9);
+}
+
+.width-10 {
+    @include width-calc(10);
+}
+
+.width-11 {
+    @include width-calc(11);
+}
+
+.width-12 {
+    @include width-calc(12);
+}
+
+// display
+.display-block {
+    display: block;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.display-none {
+    display: none;
+}
+

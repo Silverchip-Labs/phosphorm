@@ -1,0 +1,122 @@
+// table
+table {
+    width: 100%;
+    font-size: 14px;
+
+    thead {
+        tr {
+            border-top: none;
+            border-bottom-width: 2px;
+        }
+    }
+
+    tr {
+        border: 1px solid grey;
+        border: {
+            left: none;
+            right: none;
+        }
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        cursor: default;
+        user-select: none;
+
+        i {
+            margin-right: 10px;
+        }
+
+        &.sortable {
+            cursor: pointer;
+        }
+    }
+
+    .button {
+        padding: 6px 25px;
+        font-size: 13px;
+    }
+
+    .loading-row {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .no-data-row {
+        td {
+            padding: 20px 15px;
+            text-align: center;
+        }
+    }
+}
+
+// pagination
+.table-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+
+    .page-links {
+        display: flex;
+
+        li {
+            margin-right: 10px;
+        }
+    
+        button {
+            background-color: transparent;
+            font-size: 16px;
+            outline: none;
+    
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.3;
+            }
+        }
+    }
+
+    .page-selection {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+
+        label {
+            font-size: 14px;
+        }
+
+        .title {
+            margin-right: 15px;
+        }
+
+        .count {
+            margin-left: 15px;
+        }
+    }
+}
+
+// search
+.table-search {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    .icon {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+}

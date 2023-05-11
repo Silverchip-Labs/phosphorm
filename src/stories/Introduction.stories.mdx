@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Phosphorm/Introduction" />
+
+# Welcome to Phosphorm
+
+Phosphorm is a Form and UI component library, extracted from Oak.
+It is built with [React](https://reactjs.org) and [TypeScript](https://www.typescriptlang.org/).
+It's a shared library intended to cut down on code duplication and make it easier to build new UIs. The motivation for
+extracting it from Oak is to make it easier to use in other projects, and to make it easier to maintain without
+the need to update every project that uses it.
+
+
+These docs are a work in progress, and will be updated as we go.
+They're built with [Storybook](https://storybook.js.org/).
+
+## Usage
+Wrap your app in the `PhosphormProvider` component, and pass in error handling functions for any of the form submission
+errors you wish to handle, for example, use the `onUnauthorized` function to handle 401 errors and trigger a logout.
+
+## Error handling
+The package is built with the intention of handling API errors from a .NET Web API using FluentValidation for request validation.
+The expected shape of API errors is as follows:
+```json5
+{
+    message: 'string',
+    response: {
+        status: 'number',
+        // Data property can also be a string for non-field specific errors.
+        data: {
+            errors: {
+                // field errors can be a string or an array of strings if there's multiple problems
+                'field1': 'error',
+                'field2': ['error1', 'error2'],
+            }
+        }
+    }
+}
+```
+To use, pass the error response into the Form component's apiError prop.
+React Query example below:
+```jsx
+const { error, mutate } = useMutation(
+    () => axios.post('/api/endpoint', data)
+);
+return (
+    <Form apiError={error} onSubmit={mutate}>
+        <TextInput name="field1"/>
+    </Form>
+)
+```
+The field error will be extracted from the apiError prop, and retrieved by the form input (Form provides Context to child form inputs) via the 'name' prop.
+To use the Phosphorm Form's error handling in your own components, use the `useFieldValidation` hook.
+
+## Styling
+The library provides a stylesheet that can be imported and used for styling the components.
+If desired, bring in the stylesheet using
+```js
+import 'phosphorm/dist/phosphorm.css';
+```

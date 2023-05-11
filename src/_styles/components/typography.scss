@@ -1,0 +1,24 @@
+.page-title, .page-description {
+    font-family: var(--font-primary);
+    &.left {
+        text-align: left;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: right;
+    }
+}
+
+.page-title {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.page-description {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
