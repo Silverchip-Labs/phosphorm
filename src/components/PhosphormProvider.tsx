@@ -26,7 +26,7 @@ const PhosphormProvider: React.FC<PhosphormProviderProps> = ({
     return <PhosphormContext.Provider value={context}>{children}</PhosphormContext.Provider>;
 };
 
-interface PhosphormProviderProps extends PropsWithChildren {
+export interface PhosphormProviderProps extends PropsWithChildren {
     onUnauthorized?: () => void;
     onBadRequest?: () => void;
     onServerError?: () => void;
