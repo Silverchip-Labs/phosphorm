@@ -61,19 +61,19 @@ const Form: React.FC<FormProps> = ({
         if (apiError) {
             const { response, message } = apiError;
             if (response?.status === 400 && phosContext?.onBadRequest) {
-                return phosContext.onBadRequest();
+                phosContext.onBadRequest();
             }
             if (response?.status === 401 && phosContext?.onUnauthorized) {
-                return phosContext.onUnauthorized();
+                phosContext.onUnauthorized();
             }
             if (response?.status === 403 && phosContext?.onForbidden) {
-                return phosContext.onForbidden();
+                phosContext.onForbidden();
             }
             if (response?.status === 404 && phosContext?.onNotFound) {
-                return phosContext.onNotFound();
+                phosContext.onNotFound();
             }
             if (response?.status === 500 && phosContext?.onServerError) {
-                return phosContext.onServerError();
+                phosContext.onServerError();
             }
             if (response?.status === 400) {
                 if (typeof response.data === 'string') {
@@ -134,7 +134,7 @@ const Form: React.FC<FormProps> = ({
 
     return (
         <FormContext.Provider value={ctx}>
-            <form onSubmit={_handleSubmit}>
+            <form onSubmit={_handleSubmit} data-testid="form">
                 {children}
                 {!!formError && <p className="form-generic-error">{formError}</p>}
                 {!!error && !formError && <p className="form-generic-error">{error}</p>}
