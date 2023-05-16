@@ -16,10 +16,11 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         type={type}
         disabled={isPosting || disabled}
         onClick={onClick}
+        data-testid="action-button"
     >
-        {icon && !isPosting && <i className={`icon far fa-fw fa-${icon}`}></i>}
-        {isPosting && <i className="icon far fa-fw fa-spinner fa-spin"></i>}
-        {!isPosting && success && <i className="icon far fa-fw fa-check"></i>}
+        {icon && !isPosting && <i className={`icon far fa-fw fa-${icon}`} data-testid="icon"></i>}
+        {isPosting && <i className="icon far fa-fw fa-spinner fa-spin" data-testid="spinner"></i>}
+        {!isPosting && success && <i className="icon far fa-fw fa-check" data-testid="success"></i>}
         <span className="text">{children}</span>
     </button>
 );

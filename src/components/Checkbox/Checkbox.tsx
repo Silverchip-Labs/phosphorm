@@ -33,6 +33,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
                     disabled={disabled}
                     aria-checked={value ? 'true' : 'false'}
                     aria-required={required ? 'true' : 'false'}
+                    data-testid="checkbox"
+                    onBlur={showError}
                 />
                 <label className={`content ${disabled ? 'disabled' : ''}`} htmlFor={name}>
                     <div className="outer-box" aria-hidden>
