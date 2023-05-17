@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import React, { useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import EmailInput, { EmailInputProps } from './EmailInput';
