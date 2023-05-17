@@ -1,39 +1,6 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "root": true,
     "extends": [
-        "react-app",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
+        "@silverchip-labs/eslint-config-phosphor",
         "plugin:storybook/recommended"
-    ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true,
-            "modules": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "prettier/prettier": "warn",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/no-explicit-any": "off"
-    },
-    "ignorePatterns": [
-        "config-overrides.js"
     ]
 }
