@@ -27,7 +27,7 @@ const FormField: React.FC<FormFieldProps> = ({ children, name, label, required, 
     </div>
 );
 
-interface FormFieldProps {
+export interface FormFieldProps {
     children: React.ReactNode;
     /**
      * The name of the field, should match the name of the field in the form's state
