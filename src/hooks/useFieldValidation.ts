@@ -32,9 +32,7 @@ function useFieldValidation<TValue>({
 
     const addError = useCallback(
         (err: string) => {
-            if (!fieldError) {
-                addFieldError(name, err);
-            }
+            addFieldError(name, err);
         },
         [addFieldError, fieldError, name],
     );

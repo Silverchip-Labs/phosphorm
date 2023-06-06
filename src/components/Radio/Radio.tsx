@@ -43,7 +43,6 @@ const Radio: React.FC<RadioProps> = ({
 
     function renderOption(opt: DropdownOption<number>) {
         const id = `radio_${name}_${opt.value}`;
-        console.log({ opt, value });
         return (
             <div className="form-radio" key={id}>
                 <input
@@ -53,6 +52,7 @@ const Radio: React.FC<RadioProps> = ({
                     name={name}
                     onChange={() => handleChange(opt.value)}
                     disabled={disabled}
+                    checked={value === opt.value}
                     aria-checked={value === opt.value ? 'true' : 'false'}
                 />
                 <label
@@ -73,7 +73,7 @@ const Radio: React.FC<RadioProps> = ({
     }
 };
 
-interface RadioProps extends FormInputProps<number | null> {
+export interface RadioProps extends FormInputProps<number | null> {
     /**
      * The options to display
      */
