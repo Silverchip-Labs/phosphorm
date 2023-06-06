@@ -1,4 +1,4 @@
-export interface FieldErrorsObj {
+export type FieldErrorsObj {
     [key: string]: string;
 }
 
@@ -7,12 +7,12 @@ export type FieldError = {
     value: string;
 };
 
-export interface APIError {
+export type APIError {
     message: string;
     response: APIErrorResponse;
 }
 
-interface APIErrorResponse {
+type APIErrorResponse {
     status: number;
     data: string | { errors: FieldErrorsObj };
 }
